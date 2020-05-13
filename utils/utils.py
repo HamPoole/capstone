@@ -17,9 +17,12 @@ import pandas as pd
 from sklearn.metrics import pairwise_distances
 
 
+
 def preprocessing(text):
     text = re.sub(r"[{}]+".format(punctuation), '', text)
     tokens = word_tokenize(text.lower())
+    StopWords = set(stopwords.words('english'))
+
     filtered_tokens = [token for token in tokens if token not in StopWords and re.match(r'^(-?\d+)(\.\d+)?$', token) == None and len(token) > 2]
     return ' '.join(filtered_tokens)
 
