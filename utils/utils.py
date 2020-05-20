@@ -15,7 +15,21 @@ from sklearn.manifold import TSNE
 import matplotlib.pyplot as plt
 import pandas as pd
 from sklearn.metrics import pairwise_distances
+from sklearn.metrics import silhouette_score
 
+#Note: DVS stands for Document vectorization strategy and CA means Clustering algorithm.
+
+# JC
+#
+# FM
+#
+# F1
+#
+# Beta - CV # measure
+#
+# silhouette # coefficient
+#
+# Kullback–Leibler # divergence
 
 
 def preprocessing(text):
@@ -27,13 +41,13 @@ def preprocessing(text):
     return ' '.join(filtered_tokens)
 
 
-def top_tfidf_feats(row, terms, top_n=25):
+def top_tfidf_feats(row, terms, top_n=5):
     top_ids = np.argsort(row)[::-1][:top_n]
     top_feats = [terms[i] for i in top_ids]
     return top_feats
 
 
-def extract_tfidf_keywords(texts, top_n=25):
+def extract_tfidf_keywords(texts, top_n):
     tokenzier = word_tokenize
     tfidf_vectorizer = TfidfVectorizer(max_df=0.8, max_features=2000000,
                                        min_df=0, stop_words="english",
@@ -162,3 +176,8 @@ def F1(labels1, labels2):
     print("01",n01)
 
     return float(2*n11*n11) /(2*n11*n11 + n11*n10 + n11*n01)
+
+
+def silhouette_coefficient1():
+    print(1)
+    #see https://scikit-learn.org/stable/modules/generated/sklearn.metrics.silhouette_score.html
