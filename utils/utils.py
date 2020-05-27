@@ -117,9 +117,9 @@ def jaccard(labels1, labels2):
             n10 += 1
         elif not comembership1 and comembership2:
             n01 += 1
-    print("11",n11)
-    print("10",n10)
-    print("01",n01)
+    # print("11",n11)
+    # print("10",n10)
+    # print("01",n01)
 
     return float(n11) / (n11 + n10 + n01)
 
@@ -151,9 +151,9 @@ def FM(labels1, labels2):
             n10 += 1
         elif not comembership1 and comembership2:
             n01 += 1
-    print("11",n11)
-    print("10",n10)
-    print("01",n01)
+    # print("11",n11)
+    # print("10",n10)
+    # print("01",n01)
 
     return float(n11) / math.sqrt(n11*n11 + n11*n10 + n01*n10 + n11*n01)
 
@@ -171,9 +171,9 @@ def F1(labels1, labels2):
             n10 += 1
         elif not comembership1 and comembership2:
             n01 += 1
-    print("11",n11)
-    print("10",n10)
-    print("01",n01)
+    # print("11",n11)
+    # print("10",n10)
+    # print("01",n01)
 
     return float(2*n11*n11) /(2*n11*n11 + n11*n10 + n11*n01)
 
